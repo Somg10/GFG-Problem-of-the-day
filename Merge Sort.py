@@ -3,20 +3,23 @@
 class Solution:
     def merge(self,arr, l, m, r): 
         # code here
-        x = m-l+1
-        y = r-m 
-        L= [0]*(x) 
-        R= [0]*(y) 
+        n1 = m - l + 1
+        n2 = r - m 
       
-        for i in range(0,x): 
-            L[i] = arr[l+i] 
+        L = [0] * (n1) 
+        R = [0] * (n2) 
       
-        for j in range(0,y): 
-            R[j] = arr[m+1+j] 
+        for i in range(0 , n1): 
+            L[i] = arr[l + i] 
+      
+        for j in range(0 , n2): 
+            R[j] = arr[m + 1 + j] 
+      
         i = 0
         j = 0     
         k = l    
-        while i<x and j<y: 
+      
+        while i < n1 and j < n2 : 
             if L[i] <= R[j]: 
                 arr[k] = L[i] 
                 i += 1
@@ -32,8 +35,8 @@ class Solution:
         
     def mergeSort(self,arr, l, r):
         #code here
-        if l<r:
-            m=l+(r-l)//2
+        if l < r:
+            m = l + (r - l)//2
             
             self.mergeSort (arr, l, m)
             self.mergeSort (arr, m+1, r)
